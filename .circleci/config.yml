@@ -15,10 +15,12 @@ jobs:
           pkg-manager: yarn
 
 workflows:
-  version: 2
-  build_deploy_stg:
+  heroku_deploy:
     jobs:
-      - build_deploy_stg:
+      - build
+      - heroku/deploy-via-git: # Use the pre-configured job, deploy-via-git
+          requires:
+            - build
           filters:
             branches:
               only: master
