@@ -1,0 +1,24 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@4.2.1
+  slack: circleci/slack@4.3.3
+
+jobs:
+  build_deploy_stg:
+    executor:
+      name: node/default
+      tag: '12.19.0'
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+
+workflows:
+  version: 2
+  build_deploy_stg:
+    jobs:
+      - build_deploy_stg:
+          filters:
+            branches:
+              only: master
