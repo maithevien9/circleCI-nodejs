@@ -4,8 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon app.js",
-    "build": "tsc -p ."
+    "dev": "nodemon app.js"
   },
   "dependencies": {
     "dotenv": "^10.0.0",
